@@ -42,6 +42,11 @@ class Stage
   def update(name)
     @name = name
   end
+  
+  # Find all artists performing on a stage
+  def artists
+    Artist.find_by_stage(self.id)
+  end
 end
   
 

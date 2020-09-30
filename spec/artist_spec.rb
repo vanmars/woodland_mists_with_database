@@ -90,4 +90,5 @@ describe '#Artist' do
       expect(Artist.find_by_stage(stage2.id)).to(eq([artist2]))
     end
   end
+
 end
