@@ -43,3 +43,10 @@ patch('/stages/:id') do
   erb(:stages)
 end
 
+delete('/stages/:id') do
+  @stage = Stage.find(params[:id].to_i)
+  @stage.delete()
+  @stages = Stage.all
+  erb(:stages)
+end
+

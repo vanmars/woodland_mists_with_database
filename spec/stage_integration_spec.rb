@@ -77,4 +77,17 @@ describe '#Stage' do
       expect(page).to have_content('Blue Stage')
     end
   end
+
+  describe('deletes a stage', {:type => :feature}) do
+    it('deletes a stage') do
+      visit('/stages')
+      click_on('Add a new stage')
+      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      click_on('Make a new stage')
+      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Edit stage')
+      click_on('Delete stage')
+      expect(page).to have_content('There are currently no stages to display')
+    end
+  end
 end
