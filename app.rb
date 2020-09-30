@@ -49,4 +49,3 @@ delete('/stages/:id') do
   @stages = Stage.all
   erb(:stages)
 end
-
