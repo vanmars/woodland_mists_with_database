@@ -46,5 +46,13 @@ describe '#Stage' do
     end
   end
 
+  describe('#update') do
+    it('updates a stage\'s properties') do
+      lightning_stage = Stage.new("Lightning Stage", nil )
+      lightning_stage.save()
+      lightning_stage.update("Thunder Stage")
+      expect(lightning_stage.name).to(eq("Thunder Stage"))
+    end
+  end
 
 end

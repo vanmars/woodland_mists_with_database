@@ -34,8 +34,12 @@ class Stage
     @@stages.delete(self.id)
   end
  
-end
   # Update Stage
+  def update(name)
+    @name = name
+  end
+end
+  
 
   
 
