@@ -36,3 +36,10 @@ get('/stages/:id/edit') do
   erb(:stage_edit)
 end
 
+patch('/stages/:id') do
+  @stage = Stage.find(params[:id].to_i)
+  @stage.update(params[:name])
+  @stages = Stage.all
+  erb(:stages)
+end
+

@@ -63,4 +63,18 @@ describe '#Stage' do
       expect(page).to have_content('Rename stage')
     end
   end
+
+  describe('creates a stage edit path', {:type => :feature}) do
+    it('creates a new view when edit stage is clicked on') do
+      visit('/stages')
+      click_on('Add a new stage')
+      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      click_on('Make a new stage')
+      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Edit stage')
+      fill_in('name', :with => 'Blue Stage')
+      click_on('Update')
+      expect(page).to have_content('Blue Stage')
+    end
+  end
 end
