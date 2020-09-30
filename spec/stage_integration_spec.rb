@@ -3,19 +3,25 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-describe('create an initial path', {:type => :feature}) do
-  it('creates a landing page') do
-    visit('/')
-    expect(page).to have_content('Woodland')
-  end
-end
+describe '#Stage' do
 
-describe('create an initial path', {:type => :feature}) do
-  it('creates a landing page') do
-    visit('/stages')
-    expect(page).to have_content('Lightning & Thunder & Fairies, Oh My!')
+  before(:each) do
+    Stage.clear()
   end
-end
+
+  describe('create an initial path', {:type => :feature}) do
+    it('creates a landing page') do
+      visit('/')
+      expect(page).to have_content('Woodland')
+    end
+  end
+
+  describe('create an initial path', {:type => :feature}) do
+    it('creates a landing page') do
+      visit('/stages')
+      expect(page).to have_content('Lightning & Thunder & Fairies, Oh My!')
+    end
+  end
 
   describe('create a stage path', {:type => :feature}) do
     it('creates a stage and then goes to the stage page') do
@@ -39,9 +45,22 @@ end
     it('creates a new view when an individual stage is clicked on') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Vanessa\s Cool Breezy LoFi Beatz Stage')
+      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
       click_on('Make a new stage')
-      click_on('Vanessa\s Cool Breezy LoFi Beatz Stage')
+      click_on('Alma\'s Jammy Experimental Stage')
       expect(page).to have_content('Stage Name:')
     end
   end
+
+  describe('creates a stage edit path', {:type => :feature}) do
+    it('creates a new view when edit stage is clicked on') do
+      visit('/stages')
+      click_on('Add a new stage')
+      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      click_on('Make a new stage')
+      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Edit stage')
+      expect(page).to have_content('Rename stage')
+    end
+  end
+end

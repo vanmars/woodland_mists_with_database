@@ -31,3 +31,8 @@ get('/stages/:id') do   # pass an argument into the url
   erb(:stage)
 end
 
+get('/stages/:id/edit') do
+  @stage = Stage.find(params[:id].to_i)
+  erb(:stage_edit)
+end
+
