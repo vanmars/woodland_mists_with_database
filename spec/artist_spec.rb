@@ -78,4 +78,16 @@ describe '#Artist' do
       expect(Artist.all).to(eq([artist2]))
     end
   end
+
+  describe('.find_by_stage') do
+    it("finds artists for a stage") do
+      stage2 = Stage.new("Blue", nil)
+      stage2.save
+      artist = Artist.new("Elvis", @stage.id, nil)
+      artist.save()
+      artist2 = Artist.new("Chubby Checker", stage2.id , nil)
+      artist2.save()
+      expect(Artist.find_by_stage(stage2.id)).to(eq([artist2]))
+    end
+  end
 end
