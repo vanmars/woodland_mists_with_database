@@ -9,6 +9,17 @@ class Stage
     @id = id || @@total_rows += 1
   end
 
+  # For Testing
+  def self.clear
+    @@stages = {}
+    @@total_rows = 0
+  end
+
+   # Read Stages
+  def self.all
+    @@stages.values
+  end
+
   # Create Stage
   def ==(other_stage) 
     self.name() == other_stage.name()
@@ -18,14 +29,12 @@ class Stage
     @@stages[self.id] = Stage.new(self.name, self.id)
   end
   
-  # Read Stages
-  def self.all
-    @@stages.values
-  end
+  # Delete Stage
+ 
 end
   # Update Stage
 
-  # Delete Stage
+  
 
   # @@stages = {1: {name: stage1, id:1}, 2: {name: stage2, id: 2}}
   # Access stages object
