@@ -9,3 +9,10 @@ describe('create an initial path', {:type => :feature}) do
     expect(page).to have_content('Woodland')
   end
 end
+
+describe('create an initial path', {:type => :feature}) do
+  it('creates a landing page') do
+    visit('/stages')
+    expect(page).to have_content('Lightning & Thunder & Fairies, Oh My!')
+  end
+end

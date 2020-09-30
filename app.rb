@@ -9,4 +9,7 @@ get('/') do
   erb(:stages)
 end
 
-# get('/stages')
+get('/stages') do
+  @stages = Stage.all 
+  erb(:stages)
+end
