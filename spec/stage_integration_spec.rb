@@ -34,3 +34,14 @@ end
       expect(page).to have_content('Jammy') 
     end
   end
+
+  describe('creates a stage/id path', {:type => :feature}) do
+    it('creates a new view when an individual stage is clicked on') do
+      visit('/stages')
+      click_on('Add a new stage')
+      fill_in('stage_name', :with => 'Vanessa\s Cool Breezy LoFi Beatz Stage')
+      click_on('Make a new stage')
+      click_on('Vanessa\s Cool Breezy LoFi Beatz Stage')
+      expect(page).to have_content('Stage Name:')
+    end
+  end

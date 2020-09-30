@@ -14,10 +14,6 @@ get('/stages') do
   erb(:stages)
 end
 
-get('/stages/new') do
-  erb(:new_stage)
-end
-
 post('/stages') do
   name = params[:stage_name]
   newStage = Stage.new(name, nil)
@@ -25,3 +21,13 @@ post('/stages') do
   @stages = Stage.all()
   erb(:stages)
 end
+
+get('/stages/new') do
+  erb(:new_stage)
+end
+
+get('/stages/:id') do   # pass an argument into the url
+  @stage = Stage.find(params[:id].to_i)
+  erb(:stage)
+end
+
