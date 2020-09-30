@@ -35,5 +35,16 @@ describe '#Stage' do
     end
   end
 
+  describe('.delete') do
+    it("deletes a stage by id") do
+      lightning_stage = Stage.new("Lightning Stage", nil )
+      lightning_stage.save()
+      fairyland_stage = Stage.new("Fairyland Stage", nil)
+      fairyland_stage.save()
+      lightning_stage.delete()
+      expect(Stage.all).to(eq([fairyland_stage]))
+    end
+  end
+
 
 end

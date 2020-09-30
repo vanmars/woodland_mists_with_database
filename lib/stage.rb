@@ -30,6 +30,9 @@ class Stage
   end
   
   # Delete Stage
+  def delete
+    @@stages.delete(self.id)
+  end
  
 end
   # Update Stage
