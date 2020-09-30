@@ -15,4 +15,12 @@ describe('create an initial path', {:type => :feature}) do
     visit('/stages')
     expect(page).to have_content('Lightning & Thunder & Fairies, Oh My!')
   end
+
+  describe('create a stage path', {:type => :feature}) do
+    it('creates a stage and then goes to the stage page') do
+      visit('/stages')
+      click_on('Add a new stage')
+      expect(page).to have_content("Make a new stage") 
+    end
+  end
 end
