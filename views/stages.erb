@@ -1,0 +1,12 @@
+<h1>Woodland Mists Music Festival!</h1>
+<h3>Lightning & Thunder & Fairies, Oh My!</h3>
+
+<% if @stages.any? %>
+  <ul>
+    <% @stages.each do |stage| %>
+      <li><a href="/stages/<%= stage.id %>"><%= stage.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no stages to display.</p>
+<% end %>

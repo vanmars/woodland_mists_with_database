@@ -17,7 +17,7 @@ class Stage
 
    # Read Stages
   def self.all
-    @@stages.values
+    @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
   end
 
   def self.find(id)
