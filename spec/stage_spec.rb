@@ -55,4 +55,14 @@ describe '#Stage' do
     end
   end
 
+  describe('.find') do
+    it('finds a stage by id') do
+      lightning_stage = Stage.new("Lightning Stage", nil )
+      lightning_stage.save()
+      fairyland_stage = Stage.new("Fairyland Stage", nil)
+      fairyland_stage.save()
+      expect(Stage.find(lightning_stage.id)).to(eq(lightning_stage))
+    end
+  end
+
 end

@@ -20,6 +20,10 @@ class Stage
     @@stages.values
   end
 
+  def self.find(id)
+    @@stages[id]
+  end
+
   # Create Stage
   def ==(other_stage) 
     self.name() == other_stage.name()
