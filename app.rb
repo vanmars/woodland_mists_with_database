@@ -27,7 +27,7 @@ get('/stages/new') do
   erb(:new_stage)
 end
 
-get('/stages/:id') do   # pass an argument into the url
+get('/stages/:id') do 
   @stage = Stage.find(params[:id].to_i)
   erb(:stage)
 end
@@ -51,19 +51,18 @@ delete('/stages/:id') do
   erb(:stages)
 end
 
-get('/stages/:id/artists/:artist_id') do  # shows information about the artist
+get('/stages/:id/artists/:artist_id') do
   @artist = Artist.find(params[:artist_id].to_i())
   erb(:artist)
 end
 
-post('/stages/:id/artists') do  # write artist to specific stage
+post('/stages/:id/artists') do
    @stage = Stage.find(params[:id].to_i())
    artist = Artist.new(params[:artist_name], @stage.id, nil)
    artist.save()
    erb(:stage)
 end
 
-# Edit an artist and then route back to the stage view.
 patch('/stages/:id/artists/:artist_id') do
   @stage = Stage.find(params[:id].to_i())
   artist = Artist.find(params[:artist_id].to_i())
@@ -71,12 +70,9 @@ patch('/stages/:id/artists/:artist_id') do
   erb(:stage)
 end
 
-# Delete an artist and then route back to the stage view.
 delete('/stages/:id/artists/:artist_id') do
   artist = Artist.find(params[:artist_id].to_i())
   artist.delete
   @stage = Stage.find(params[:id].to_i())
   erb(:stage)
 end
-
-  
