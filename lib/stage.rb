@@ -17,7 +17,7 @@ class Stage
 
    # Read Stages
   def self.all
-    @@stages.values     # [{id:1, name:"lightning"}]   @@stages.values[0].name
+    @@stages.values
   end
 
   def self.find(id)
@@ -43,17 +43,8 @@ class Stage
     @name = name
   end
   
-  # Find all artists performing on a stage
+  # Find All Artists Aerforming on a Stage
   def artists
     Artist.find_by_stage(self.id)
   end
 end
-  
-
-  
-
-  # @@stages = {1: {name: stage1, id:1}, 2: {name: stage2, id: 2}}
-  # Access stages object
-  # Stage.all =[{name: stage1, id:1}, {name: stage2, id: 2}]    for testing
-  # @@stages[1].name   getting name of specific stage by key/id
-  #Access the albums obj at the name key
