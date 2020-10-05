@@ -35,7 +35,7 @@ describe '#Stage' do
     it('creates a new stage on the /stages page') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      fill_in('stage_name', :with => 'Jammy Experimental Stage')
       click_on('Make a new stage')
       expect(page).to have_content('Jammy') 
     end
@@ -45,9 +45,9 @@ describe '#Stage' do
     it('creates a new view when an individual stage is clicked on') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      fill_in('stage_name', :with => 'Jammy Experimental Stage')
       click_on('Make a new stage')
-      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Jammy Experimental Stage')
       expect(page).to have_content('Stage Name:')
     end
   end
@@ -56,9 +56,9 @@ describe '#Stage' do
     it('creates a new view when edit stage is clicked on') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      fill_in('stage_name', :with => 'Jammy Experimental Stage')
       click_on('Make a new stage')
-      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Jammy Experimental Stage')
       click_on('Edit stage')
       expect(page).to have_content('Rename stage')
     end
@@ -68,9 +68,9 @@ describe '#Stage' do
     it('creates a new view when edit stage is clicked on') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      fill_in('stage_name', :with => 'Jammy Experimental Stage')
       click_on('Make a new stage')
-      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Jammy Experimental Stage')
       click_on('Edit stage')
       fill_in('name', :with => 'Blue Stage')
       click_on('Update')
@@ -82,9 +82,9 @@ describe '#Stage' do
     it('deletes a stage') do
       visit('/stages')
       click_on('Add a new stage')
-      fill_in('stage_name', :with => 'Alma\'s Jammy Experimental Stage')
+      fill_in('stage_name', :with => 'Jammy Experimental Stage')
       click_on('Make a new stage')
-      click_on('Alma\'s Jammy Experimental Stage')
+      click_on('Jammy Experimental Stage')
       click_on('Edit stage')
       click_on('Delete stage')
       expect(page).to have_content('There are currently no stages to display')

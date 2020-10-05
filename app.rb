@@ -4,6 +4,9 @@ require('./lib/stage')
 require('./lib/artist')
 require('pry')
 also_reload('lib/**/*.rb')
+require("pg")
+
+DB = PG.connect({:dbname => "music_festival"})
 
 get('/') do
   @stages = Stage.all 
@@ -17,7 +20,7 @@ end
 
 post('/stages') do
   name = params[:stage_name]
-  newStage = Stage.new(name, nil)
+  newStage = Stage.new({:name => name, :id => nil})
   newStage.save()
   @stages = Stage.all()
   erb(:stages)
@@ -58,7 +61,7 @@ end
 
 post('/stages/:id/artists') do
    @stage = Stage.find(params[:id].to_i())
-   artist = Artist.new(params[:artist_name], @stage.id, nil)
+   artist = Artist.new({:name => params[:artist_name], :stage_id => @stage.id, :id => nil})
    artist.save()
    erb(:stage)
 end
